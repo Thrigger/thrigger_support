@@ -22,6 +22,26 @@ pub fn lcm(input: &Vec<i64>) -> i64 {
     output as i64
 }
 
+/// Greatest Common Divisor
+///
+/// Finds the greatest common divisior of two numbers using euclid's algorithm
+pub fn gcd(a: i64, b: i64) -> i64 {
+    let mut bigger = a;
+    let mut smaller = b;
+    if a < b {
+        bigger = b;
+        smaller = a;
+    }
+
+    while smaller>0 {
+        let rest = bigger % smaller;
+        bigger = smaller;
+        smaller = rest;
+    }
+
+    bigger
+}
+
 /// Find biggest value in vector
 ///
 /// This function finds the biggest value in the vector
@@ -40,6 +60,12 @@ pub fn find_max(input: &Vec<i64>) -> i64 {
 mod tests {
     use super::*;
 
+    #[test]
+    fn test_gcd() {
+        assert_eq!(gcd(6, 4), 2);
+        assert_eq!(gcd(45, 75), 15);
+        assert_eq!(gcd(876, 240), 12);
+    }
     #[test]
     fn test_lcm() {
         assert_eq!(lcm(&vec![10, 30, 60]), 60);
