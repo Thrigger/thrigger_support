@@ -1,3 +1,32 @@
+/// Finds a pattern between the two specified strings
+///
+/// Returns the first occurens of a string between the two specified patterns
+///
+/// # Example
+/// '''
+/// assert_eq!(find_between("<a<b>>","<",">"), "a<b");
+/// '''
+pub fn find_between<'a>(string: &'a str, pattern_start: &str, pattern_stop: &str) -> Option<&'a str> {
+    let mut start = -1;
+    let mut stop = -1;
+
+    for (i, each) in string.chars().enumerate() {
+        let each_as_string = each.to_string();
+        let each_as_str = each_as_string.as_str();
+        if start == -1 && each_as_str == pattern_start {
+            start = i as isize;
+        } else if start != -1 && each_as_str == pattern_stop {
+            stop = i as isize;
+            break;
+        }
+    }
+
+    if stop == -1 || stop - start <= 1 {
+        return None;
+    } 
+    Some(&string[(start+1) as usize..stop as usize])
+}
+
 /// Least Common Multiple
 ///
 /// This function finds the least common multiple of a Vec<i64>
@@ -61,6 +90,10 @@ mod tests {
     use super::*;
 
     #[test]
+    fn test_find_between() {
+        assert_eq!(find_between("(1)", "(", ")"), Some("1"));
+    }
+    #[test]
     fn test_gcd() {
         assert_eq!(gcd(6, 4), 2);
         assert_eq!(gcd(45, 75), 15);
@@ -83,3 +116,4 @@ mod tests {
         assert_eq!(find_max(&vec![100, 30, 60]), 100);
     }
 }
+
