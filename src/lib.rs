@@ -64,7 +64,9 @@ mod tests {
     fn test_gcd() {
         assert_eq!(gcd(6, 4), 2);
         assert_eq!(gcd(45, 75), 15);
+        assert_eq!(gcd(876, 204), 12);
         assert_eq!(gcd(876, 240), 12);
+        assert_eq!(gcd(11319, 9943), 1);
     }
     #[test]
     fn test_lcm() {
