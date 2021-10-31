@@ -1,4 +1,4 @@
-mod index_of;
+pub mod index_of;
 
 /// Finds a pattern between the two specified strings
 ///
