@@ -1,5 +1,5 @@
 
-trait IndexOf<T> {
+pub trait IndexOf<T> {
     fn index_of(&self, element: T) -> Option<usize>;
     fn index_of_reversed(&self, element: T) -> Option<usize>;
 }
