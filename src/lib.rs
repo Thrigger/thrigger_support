@@ -1,4 +1,5 @@
 pub mod index_of;
+pub mod data_conversions;
 
 /// Finds a pattern between the two specified strings
 ///
