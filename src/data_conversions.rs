@@ -25,4 +25,25 @@ fn string_to_str_vec(input: &String) -> Vec<&str> {
         _=>Some(s),}).collect()
 }
 
+fn binary_to_u32(input: &Vec<char>) -> u32 {
+    let mut out = 0:
+    let mut multiplier = 1;
+    for each in reversed(input) {
+        out += multiplier * each.to_digit().unwrap();
+        multiplier *= 2
+    }
+    out
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_binary_to_u32() {
+        assert_eq!(binary_to_u32(vec!['1','1','1','1']),15);
+        assert_eq!(binary_to_u32(vec!['1','0','0','1']),9);
+    }
+}
 
