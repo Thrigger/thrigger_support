@@ -1,5 +1,6 @@
-pub mod index_of;
 pub mod data_conversions;
+pub mod index_of;
+pub mod point;
 
 /// Finds a pattern between the two specified strings
 ///
