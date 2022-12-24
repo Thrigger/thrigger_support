@@ -7,7 +7,7 @@ impl Point {
     pub fn new(x: i64, y: i64) -> Point {
         Point {x,y}
     }
-    pub fn new_origo() -> Point {
+    pub fn new_origin() -> Point {
         Point::new(0,0)
     }
 }
@@ -26,7 +26,7 @@ mod tests {
     fn test_to_string() {
         let p1 = Point::new(1,5);
         let mut p2 = Point::new(1,5);
-        let p3 = Point::new_origo();
+        let p3 = Point::new_origin();
 
         assert_eq!("1,5",p1.to_string());
         assert_eq!("1,5",p2.to_string());
