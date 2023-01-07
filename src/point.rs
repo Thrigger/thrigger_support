@@ -1,3 +1,4 @@
+#[derive(Clone)]
 pub struct Point {
     pub x: i64,
     pub y: i64,
@@ -54,5 +55,14 @@ mod tests {
         p2.x += 1;
         assert!(p1 != p2);
     }
+
+    #[test]
+    fn test_clone() {
+        let p1 = Point::new(1,5);
+        let p2 = p1.clone();
+
+        assert!(p1 == p2);
+    }
+
 }
 
