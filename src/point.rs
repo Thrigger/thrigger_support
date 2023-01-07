@@ -18,6 +18,12 @@ impl ToString for Point {
     }
 }
 
+impl PartialEq for Point {
+    fn eq(&self, other: &Self) -> bool {
+        self.x == other.x && self.y == other.y
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -34,6 +40,19 @@ mod tests {
 
         p2.x += 1;
         assert_eq!("2,5",p2.to_string());
+    }
+
+    #[test]
+    fn test_comparison() {
+        let p1 = Point::new(1,5);
+        let mut p2 = Point::new(1,5);
+        let p3 = Point::new_origin();
+
+        assert!(p1 == p2);
+        assert!(p1 != p3);
+
+        p2.x += 1;
+        assert!(p1 != p2);
     }
 }
 
